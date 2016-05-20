@@ -31,9 +31,9 @@ limitations under the License.
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <solr.version>4.3.0</solr.version>
-    <solr.expected.version>4.3.0</solr.expected.version> <!-- sanity check to verify we actually run against the expected version rather than some outdated version -->
-    <slf4j.version>1.6.1</slf4j.version>
+    <solr.version>6.0.0</solr.version>
+    <solr.expected.version>6.0.0</solr.expected.version> <!-- sanity check to verify we actually run against the expected version rather than some outdated version -->
+    <slf4j.version>1.7.7</slf4j.version>
     <surefire.version>2.12.4</surefire.version>
   </properties>
 
@@ -78,12 +78,32 @@ limitations under the License.
       <version>${kite.version}</version>
       <exclusions>
         <exclusion>
-            <groupId>org.apache.hadoop</groupId>
-           <artifactId>hadoop-common</artifactId>
+          <groupId>org.apache.hadoop</groupId>
+          <artifactId>hadoop-common</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.kitesdk</groupId>
+          <artifactId>kite-morphlines-solr-core</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.kitesdk</groupId>
+          <artifactId>kite-morphlines-solr-cell</artifactId>
         </exclusion>
       </exclusions>
       <type>pom</type>
-      <optional>true</optional>
+    </dependency>
+
+
+    <dependency>
+      <groupId>org.apache.solr</groupId>
+      <artifactId>solr-morphlines-cell</artifactId>
+      <version>${solr.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.solr</groupId>
+      <artifactId>solr-morphlines-core</artifactId>
+      <version>${solr.version}</version>
     </dependency>
 
     <dependency>
@@ -153,6 +173,24 @@ limitations under the License.
                 <exclude>src/test/resources/**</exclude>
               </excludes>
             </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <configuration>
+          <descriptorRefs>
+            <descriptorRef>jar-with-dependencies</descriptorRef>
+          </descriptorRefs>
+        </configuration>
+        <executions>
+          <execution>
+            <id>make-assembly</id>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
           </execution>
         </executions>
       </plugin>

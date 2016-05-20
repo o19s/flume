@@ -37,8 +37,8 @@ limitations under the License.
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
     <!-- Java compiler configuration -->
-    <sourceJavaVersion>1.6</sourceJavaVersion>
-    <targetJavaVersion>1.6</targetJavaVersion>
+    <sourceJavaVersion>1.8</sourceJavaVersion>
+    <targetJavaVersion>1.8</targetJavaVersion>
 
     <!-- defaults for flaky test and focused test exclusions -->
     <test.exclude.pattern>$</test.exclude.pattern> <!-- junk pattern -->
@@ -118,7 +118,6 @@ limitations under the License.
             <groupId>org.apache.zookeeper</groupId>
             <artifactId>zookeeper</artifactId>
             <version>3.4.5</version>
-            <scope>test</scope>
           </dependency>
         </dependencies>
       </dependencyManagement>
@@ -194,7 +193,6 @@ limitations under the License.
             <groupId>org.apache.zookeeper</groupId>
             <artifactId>zookeeper</artifactId>
             <version>3.4.5</version>
-            <scope>test</scope>
           </dependency>
 
           <!-- only compatible with hadoop-2 -->
@@ -321,7 +319,6 @@ limitations under the License.
             <groupId>org.apache.zookeeper</groupId>
             <artifactId>zookeeper</artifactId>
             <version>3.4.5</version>
-            <scope>test</scope>
           </dependency>
 
           <!-- only compatible with hadoop-2 -->
@@ -967,7 +964,19 @@ limitations under the License.
       <dependency>
         <groupId>org.apache.httpcomponents</groupId>
         <artifactId>httpclient</artifactId>
-        <version>4.2.1</version>
+        <version>4.4.1</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.apache.httpcomponents</groupId>
+        <artifactId>httpcore</artifactId>
+        <version>4.4.1</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.apache.httpcomponents</groupId>
+        <artifactId>httpmime</artifactId>
+        <version>4.4.1</version>
       </dependency>
 
       <dependency>
@@ -1175,6 +1184,7 @@ limitations under the License.
         <groupId>org.apache.flume.flume-ng-sinks</groupId>
         <artifactId>flume-ng-morphline-solr-sink</artifactId>
         <version>1.6.0</version>
+        <classifier>jar-with-dependencies</classifier>
       </dependency>
 
       <dependency>
@@ -1301,7 +1311,7 @@ limitations under the License.
       <dependency>
         <groupId>org.apache.solr</groupId>
         <artifactId>solr-cell</artifactId>
-        <version>4.3.0</version>
+        <version>6.0.0</version>
       </dependency>
 
       <!-- Dependencies of the Twitter source -->
