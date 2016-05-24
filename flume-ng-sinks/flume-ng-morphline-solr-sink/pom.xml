@@ -116,13 +116,13 @@ limitations under the License.
     <dependency>
       <groupId>org.apache.solr</groupId>
       <artifactId>solr-morphlines-core</artifactId>
-      <version>5.2.1</version>
+      <version>6.0.0</version>
     </dependency>
 
     <dependency>
       <groupId>org.apache.solr</groupId>
       <artifactId>solr-morphlines-cell</artifactId>
-      <version>5.2.1</version>
+      <version>6.0.0</version>
     </dependency>
 
     <dependency>
